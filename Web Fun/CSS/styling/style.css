@@ -1,0 +1,35 @@
+*{
+
+}
+h1{
+    font-style: normal;
+    color: white;
+    background-color: black;
+}
+span{
+    color: aqua;
+}
+.div1{
+    height: 40px;
+    background-color: rgb(109, 25, 204);
+    margin-top: -15px;
+}
+.div1 h2{
+    text-align: center;
+    color: white; 
+    padding-top: 5px;
+    
+}
+.div2{
+    text-align: right;
+    height: 40px;
+    background-color: rgb(160, 221, 221);
+     
+      
+}
+.div2 h3{
+   
+}
+h1,h2,h3{
+    text-transform: capitalize;
+}
