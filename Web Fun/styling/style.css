@@ -5,6 +5,8 @@ h1{
     font-style: normal;
     color: white;
     background-color: black;
+    text-decoration: none;
+    
 }
 span{
     color: aqua;
@@ -24,11 +26,11 @@ span{
     text-align: right;
     height: 40px;
     background-color: rgb(160, 221, 221);
-     
+    margin-top: -10px;
       
 }
 .div2 h3{
-   
+  padding-top: 5px; 
 }
 h1,h2,h3{
     text-transform: capitalize;
