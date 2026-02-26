@@ -1,0 +1,25 @@
+.but1{
+color: #00d1b2;
+height: 30px;
+width: 120px;
+border-radius:50px ;
+border: 1px solid #00d1b2;
+}
+.but2{
+color: white;
+height: 30px;
+width: 30px;
+background-color: #00d1b2;
+border-radius: 50%;
+border:1px solid #00d1b2;
+}
+.but3{
+height: 40px;
+width: 230;
+color: white;
+background-color: #2b78e4;
+border: 2px solid black;
+box-shadow: 2px 2px 0px black ;
+padding-left: 20px;
+padding-right: 20px;
+}
