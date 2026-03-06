@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color:#f0f3fd;
+}
+.container{
+ padding: 25px;
+ align-items: center;
+
+}
+.container h1{
+    font-family: 'Barlow', sans-serif ;
+    text-align: center;
+}
+.container div{
+  height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+    align-items: center;
+    
+
+}
+.blueDiv{
+    background-color: #50bcfa;
+    
+}
+.pinkDiv{
+    background-color: #d0a2c0 ;
+}
+.whiteDiv{
+    background-color: #fcfcff ;
+}
+img{
+    height: 200px;
+    width: 250px;
+}
