@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+box-sizing: border-box;
+}
+
+.row{
+    width: 100%;
+    gap: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.col,.col-2,.col-3{
+ padding: 20px;
+ background-color: #5f9ea0;
+    color: white;
+}
+.col{
+    flex: 1;
+   
+}
+.col-2{
+     flex: 2;
+}
+.col-3{
+    flex: 3;
+}
