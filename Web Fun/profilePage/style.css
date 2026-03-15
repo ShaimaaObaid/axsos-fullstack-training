@@ -47,12 +47,13 @@ list-style: none;
 }
 .bigParent{
     display: flex;
+    align-items: center;
 }
 .parent{
 margin-left: 210px;
 
 }
-.FirstContainer,.SecondContainer{
+.FirstContainer,.SecondContainer,.fourthContainer{
     width: 435px;
     border: 1px solid gray; 
     margin-top: 30px;
@@ -80,8 +81,8 @@ margin-left: 210px;
     margin-top: 50px;
     margin-left: 30px;
 }
-.child3 i,a{
-color: #155c99;
+.child3 i,a {
+color: #0c5394;
 }
 .SecondContainer{
     height: 130px;
@@ -101,16 +102,17 @@ color: #155c99;
     margin: 5px 0;
 }
 .secParent{
+margin-left: 740px;
 
 
 }
-.thirdContaier,.fourthContainer{
+.thirdContainer,.fourthContainer{
     width: 190px;
     border: 2px solid gray;
     
 
 }
-.thirdChild{
+.thirdChild,.fourthChild{
     display: flex;
     color: #fefefe;
     align-items: center;
@@ -118,22 +120,27 @@ color: #155c99;
     background-color: #333333;
 }
 .circle{
-    height: 20px;
     width: 20px;
+}
+.secCircle{
+    width: 40px;
+}
+.circle,.secCircle{
+    height: 20px;
     border-radius: 50%;
     background-color: #cccccc;
     margin-right: 5px;
     margin-left: 10px;
     
 }
-.circle p{
+.circle p,.secCircle p{
   padding-left: 5px;
   color: #000000;
 }
 
-.fDiv,.sDiv{
+.Divv{
     display: flex;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .img{
   height: 30px;
@@ -142,7 +149,7 @@ color: #155c99;
   margin: 8px;
 
 }
-.fDiv span,.sDiv span{
+.spantext{
   margin-top: 15px;  
 }
 .true,.false{
@@ -155,5 +162,9 @@ color: #155c99;
     background-color: #999999;
     color: white;
     
+}
+.Divv a{
+    color: #0c5394;
+    margin-left: 15px;
 }
 
