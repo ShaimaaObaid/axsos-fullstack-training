@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DojoWeather</title>
+</head>
+<body>
+    <nav>
+      <div class="navBar">
+        <h1>DojoWeather</h1>
+        <ul class="nav-List">
+            <li onclick="selectCity()">Burbank</li>
+            <li onclick="selectCity()">Chicago</li>
+            <li onclick="selectCity()">Dallas</li>
+        </ul>
+      </div>  
+    </nav>
+    <div class="container">
+        <section class="firstSection">
+            <h2>San Jose</h2>
+            <article>
+                <h4>show temperature in </h4>
+            <select id="temp">
+                <option value="c" >°C</option>
+                <option value="f">°F</option>
+            </select>
+            </article>
+        </section>
+        <hr>
+        <section class="weatherSection">
+            <div class="Today">
+                <h2>Today</h2>
+                <img src="static/some_rain.png" alt="rainPhoto">
+                <b>some rain</b>
+                <b class="temp"><span class="high">24</span>°  <span class="low">18</span>°</b>
+            </div>
+            <div class="Tomorrow">
+                <h2>Tomorrow</h2>
+                <img src="static/sun.png" alt="sunPhoto">
+                <b>some sun</b>
+                <b class="temp"><span class="high">27</span>°  <span class="low">19</span>°</b>
+            </div>
+            <div class="Friday">
+                <h2>Friday</h2>
+                <img src="static/some_clouds.png" alt="cloudPhoto">
+                <b>some rain</b>
+                <b class="temp"><span class="high">21</span>°  <span class="low">16</span>°</b>
+            </div>
+            <div class="Today">
+                <h2>Today</h2>
+                <img src="static/sun.png" alt="sunPhoto">
+                <b>some rain</b>
+                <b class="temp"><span class="high">26</span>°  <span class="low">21</span>°</b>
+            </div>
+        </section>
+        <div class="cookieDiv">
+            <img src="static/cookie.png" alt="cookiePhoto">
+            <div>
+                <h3>Stop Cookie time</h3>
+            <p>we use cookies (sadly not the edible ones) to personlize content and ads,
+                 to provide social media features and to analyse our traffic.
+                  <a href="#">ReadMore...</a></p>
+            </div>
+            <button onclick="acceptCookies()">IAccept</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
