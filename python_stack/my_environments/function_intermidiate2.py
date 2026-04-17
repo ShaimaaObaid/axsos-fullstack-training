@@ -11,9 +11,8 @@ sports_directory = {
     'basketball': ['Kobe', 'Jordan', 'James', 'Curry'],
     'soccer': ['Messi', 'Ronaldo', 'Rooney']
 }
-
 z = [{'x': 10, 'y': 20}]
-
+#print(sports_directory['soccer'][1])
 # 1) Update values
 
 x[1][0] = 15

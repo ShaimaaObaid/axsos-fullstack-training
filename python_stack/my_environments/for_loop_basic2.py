@@ -20,13 +20,13 @@ print(Count_positives([-1,1,1,1]))
 print(Count_positives([1,6,-4,-2,-7,-2]))
 
 #Sum Total - Create a function that takes a list and returns the sum of all the values in the list
-def sum_total(my_list):
-    sum=0
+def total(my_list):
+    sum_total=0
     for num in my_list:
-        sum+=num
-    return sum
-print(sum_total([1,2,3,4])) 
-print(sum_total([6,3,-2]))
+        sum_total+=num
+    return sum_total
+print(total([1,2,3,4])) 
+print(total([6,3,-2]))
 
 #Average - Create a function that takes a list and returns the average of all the values.x
 def average(my_list):
