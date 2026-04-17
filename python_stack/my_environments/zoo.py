@@ -25,7 +25,7 @@ class Lion(Animal):
 
     def feed(self):
         super().feed()
-        self.happiness += 10  # extra boost for lion
+        self.happiness += 10  
 
 
 # Monkey class
@@ -37,7 +37,7 @@ class Monkey(Animal):
     def feed(self):
         super().feed()
         self.happiness += 5
-        self.health -= 5  # monkeys get excited but a bit wild
+        self.health -= 5  
 
 
 # Bear class
@@ -48,7 +48,7 @@ class Bear(Animal):
 
     def feed(self):
         super().feed()
-        self.health += 5  # bears gain more health
+        self.health += 5  
 
 
 # Zoo class
