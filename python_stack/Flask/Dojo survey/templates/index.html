@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <form action="/result" method="POST">
+
+        <div class="row">
+            <label for="name">Your Name:</label>
+            <input class="right" type="text" name="name" id="name">
+        </div>
+
+        <div class="row">
+            <label for="location">Dojo Location:</label>
+            <select name="location" id="location">
+                <option>Gaza</option>
+                <option>West Bank</option>
+                <option>Online</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="language">Favorite Language:</label>
+            <select name="language" id="language">
+                <option>Python</option>
+                <option>JavaScript</option>
+                <option>C++</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="comment">Comment (optional):</label>
+            <textarea name="comment" id="comment"></textarea>
+        </div>
+
+        <!-- NINJA BONUS (Radio) -->
+        <div class="row">
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" value="Male" id="gender"> Male
+            <input type="radio" name="gender" value="Female" id="gender"> Female
+        </div>
+
+        <!-- SENSEI BONUS (Checkbox) -->
+        <div class="row">
+            <label for="skill">Skills:</label>
+            <input type="checkbox" name="skills" value="HTML" id="skill"> HTML
+            <input type="checkbox" name="skills" value="CSS" id="skill"> CSS
+            <input type="checkbox" name="skills" value="Python" id="skill"> Python
+        </div>
+
+        <div class="row right">
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    font-family: Arial;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 400px;
+    margin: 100px auto;
+    border: 3px solid black;
+    padding: 20px;
+    background: white;
+}
+
+.row {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+label {
+    display: block;
+}
+.right {
+    text-align: right;
+    display: block;
+}
+#name,#location,#language{
+    height: 20px;
+    width: 200px;
+}
+
+button {
+    background-color: rgb(96, 162, 184);
+    border: 2px solid black;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+    cursor: pointer;
+    color: white;
+}
