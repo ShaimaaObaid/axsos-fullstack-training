@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Counter Assignment</h1>
+
+        <h2>
+            Number of Visits:
+            {{ session['visits'] }}
+        </h2>
+
+        <h2>
+            Counter Value:
+            {{ session['count'] }}
+        </h2>
+
+        <div class="buttons">
+
+            <a href="/add_two">
+                <button>+2</button>
+            </a>
+
+            <a href="/reset">
+                <button>Reset Counter</button>
+            </a>
+
+            <a href="/destroy_session">
+                <button>Destroy Session</button>
+            </a>
+
+        </div>
+
+        <form action="/increment" method="POST">
+
+            <input
+                type="number"
+                name="number"
+                placeholder="Enter increment number"
+                required
+            >
+
+            <button type="submit">
+                Increment
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
