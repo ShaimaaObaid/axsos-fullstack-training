@@ -1,0 +1,61 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+input{
+    width: 120px;
+    height: 35px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.error-box{
+    width: 200px;
+    margin: 20px auto;
+    background-color: red;
+    color: white;
+    padding: 30px;
+}
+
+.success-box{
+    width: 250px;
+    margin: 20px auto;
+    background-color: green;
+    color: white;
+    padding: 30px;
+}
+table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 300px;
+}
+
+th, td{
+    border: 2px solid black;
+    padding: 10px;
+}
+
+th{
+    background-color: gray;
+    color: white;
+}
+
+.lose-box{
+    width: 250px;
+    margin: 20px auto;
+    background-color: black;
+    color: white;
+    padding: 30px;
+}

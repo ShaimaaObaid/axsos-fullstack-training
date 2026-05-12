@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Welcome to the Great Number Game!</h1>
+
+        <p>I am thinking of a number between 1 and 100</p>
+
+        <p>Attempts: {{ session['attempts'] }}/5</p>
+
+        {% if 'result' in session %}
+
+            <!-- WIN -->
+            {% if session['result'] == "Correct!" %}
+
+                <div class="success-box">
+
+                    <h2>{{ session['correct_number'] }} was the number!</h2>
+
+                    <p>You guessed it in {{ session['attempts'] }} attempts</p>
+
+                    <form action="/save" method="POST">
+
+                        <input type="text" name="name" placeholder="Enter your name" required>
+
+                        <br>
+
+                        <button type="submit">Save Score</button>
+
+                    </form>
+
+                    <a href="/reset">
+                        <button>Play Again</button>
+                    </a>
+
+                </div>
+
+            <!-- LOSE -->
+            {% elif session['result'] == "You Lose!" %}
+
+                <div class="lose-box">
+
+                    <h2>You Lose!</h2>
+
+                    <p>The number was {{ session['number'] }}</p>
+
+                    <a href="/reset">
+                        <button>Try Again</button>
+                    </a>
+
+                </div>
+
+            <!-- TOO HIGH OR LOW -->
+            {% else %}
+
+                <div class="error-box">
+
+                    <h2>{{ session['result'] }}</h2>
+
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+        <!-- HIDE FORM AFTER GAME OVER -->
+        {% if not session.get('game_over') %}
+
+        <form action="/guess" method="POST">
+
+            <input type="number" name="guess" required>
+
+            <br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        {% endif %}
+
+        <br>
+
+        <a href="/leaderboard">Leaderboard</a>
+
+    </div>
+
+</body>
+</html>
