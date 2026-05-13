@@ -1,0 +1,72 @@
+body{
+    font-family: Arial;
+    margin: 30px;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gold-box{
+    border: 2px solid black;
+    width: 120px;
+    padding: 8px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.card{
+    border: 2px solid black;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card h2{
+    margin-bottom: 10px;
+}
+
+.card p{
+    margin-bottom: 30px;
+}
+
+input[type="submit"]{
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.activities{
+    border: 2px solid black;
+    height: 180px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.result{
+    margin-top: 20px;
+}
+
+.reset-btn{
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: darkred;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
