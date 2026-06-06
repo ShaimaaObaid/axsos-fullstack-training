@@ -1,0 +1,33 @@
+body{
+    text-align:center;
+    font-family: Arial, sans-serif;
+}
+
+.box{
+    width:300px;
+    padding:20px;
+    margin:20px auto;
+    color:white;
+    font-size:20px;
+    text-align:center;
+}
+
+.low{
+    background-color:red;
+}
+
+.high{
+    background-color:red;
+}
+
+.correct{
+    background-color:green;
+}
+
+input{
+    padding:10px;
+}
+
+button{
+    padding:10px 15px;
+}
