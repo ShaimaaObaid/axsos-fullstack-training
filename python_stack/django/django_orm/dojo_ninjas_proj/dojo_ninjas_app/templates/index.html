@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and ninjas with template</title>
+</head>
+<body>
+    <div style="display:flex; justify-content:space-between;">
+
+    <!-- ADD DOJO -->
+    <div>
+        <h2>Add a Dojo</h2>
+        <form action="/create_dojo/" method="POST">
+            {% csrf_token %}
+            Name: <input type="text" name="name"><br>
+            City: <input type="text" name="city"><br>
+            State: <input type="text" name="state"><br>
+            <button type="submit">Add Dojo</button>
+        </form>
+    </div>
+
+    <!-- ADD NINJA -->
+    <div>
+        <h2>Add a Ninja</h2>
+        <form action="/create_ninja/" method="POST">
+            {% csrf_token %}
+            First Name: <input type="text" name="first_name"><br>
+            Last Name: <input type="text" name="last_name"><br>
+
+            Dojo:
+            <select name="dojo_id">
+                {% for dojo in dojos %}
+                    <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Add Ninja</button>
+        </form>
+    </div>
+
+</div>
+
+<hr>
+
+<!-- DOJOS LIST -->
+<center>
+    <h2>All Dojos</h2>
+</center>
+
+{% for dojo in dojos %}
+    <div style="border:1px solid black; margin:10px; padding:10px;">
+
+        <h3>
+            Ninjas at {{ dojo.name }} - {{ dojo.ninjas.count }}
+        </h3>
+
+        <ul>
+            {% for ninja in dojo.ninjas.all %}
+                <li>{{ ninja.first_name }} {{ ninja.last_name }}</li>
+            {% endfor %}
+        </ul>
+
+        <form action="/delete_dojo/{{ dojo.id }}/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete Dojo</button>
+        </form>
+
+    </div>
+{% endfor %}
+</body>
+</html>
