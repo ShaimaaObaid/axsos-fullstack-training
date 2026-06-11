@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book details</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+
+<p>ID: {{ book.id }}</p>
+<p>{{ book.desc }}</p>
+
+<hr>
+
+<h3>Authors linked</h3>
+<ul>
+    {% for author in authors %}
+        <li>{{ author.first_name }} {{ author.last_name }}</li>
+    {% empty %}
+        <li>No authors yet</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>Add Author</h3>
+
+<form action="/books/{{ book.id }}/add_author/" method="POST">
+    {% csrf_token %}
+
+    <select name="author">
+        {% for author in available_authors %}
+            <option value="{{ author.id }}">
+                {{ author.first_name }} {{ author.last_name }}
+            </option>
+        {% empty %}
+            <option disabled>No available authors</option>
+        {% endfor %}
+    </select>
+
+    <button>Add</button>
+</form>
+</body>
+</html>
