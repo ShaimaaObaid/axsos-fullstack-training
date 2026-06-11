@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new_show</title>
+</head>
+<body>
+    <a href="/shows">Go Back</a>
+
+<h1>Add a New Show</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <p style="color:red">{{message}}</p>
+    {% endfor %}
+{% endif %}
+
+<form action="/shows/create" method="post">
+    {% csrf_token %}
+
+    <p>
+        Title:
+        <input type="text" name="title">
+    </p>
+
+    <p>
+        Network:
+        <input type="text" name="network">
+    </p>
+
+    <p>
+        Release Date:
+        <input type="date" name="release_date">
+    </p>
+
+    <p>
+        Description:
+        <textarea name="description"></textarea>
+    </p>
+
+    <button>Create</button>
+
+</form>
+</body>
+</html>
