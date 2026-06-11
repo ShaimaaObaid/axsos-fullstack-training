@@ -6,41 +6,24 @@
     <title>new_show</title>
 </head>
 <body>
-    <a href="/shows">Go Back</a>
+   <h1>Add a New Show</h1>
 
-<h1>Add a New Show</h1>
+{% for message in messages %}
+<p style="color:red">{{ message }}</p>
+{% endfor %}
 
-{% if messages %}
-    {% for message in messages %}
-        <p style="color:red">{{message}}</p>
-    {% endfor %}
-{% endif %}
-
-<form action="/shows/create" method="post">
+<form action="/shows/create" method="POST">
     {% csrf_token %}
 
-    <p>
-        Title:
-        <input type="text" name="title">
-    </p>
+    Title: <input type="text" name="title"><br>
 
-    <p>
-        Network:
-        <input type="text" name="network">
-    </p>
+    Network: <input type="text" name="network"><br>
 
-    <p>
-        Release Date:
-        <input type="date" name="release_date">
-    </p>
+    Release Date: <input type="date" name="release_date"><br>
 
-    <p>
-        Description:
-        <textarea name="description"></textarea>
-    </p>
+    Description (optional): <textarea name="description"></textarea><br>
 
-    <button>Create</button>
-
+    <button type="submit">Create</button>
 </form>
 </body>
 </html>

@@ -18,23 +18,26 @@ def new_show(request):
     return render(request, 'new_show.html')
 
 
+
 def create_show(request):
+    if request.method == "POST":
+        errors = Show.objects.validator(request.POST)
 
-    errors = Show.objects.validator(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/shows/new')
 
-    if errors:
-        for key, value in errors.items():
-            messages.error(request, value)
-        return redirect('/shows/new')
+        Show.objects.create(
+            title=request.POST['title'],
+            network=request.POST['network'],
+            release_date=request.POST['release_date'],
+            description=request.POST.get('description', '')
+        )
 
-    show = Show.objects.create(
-        title=request.POST['title'],
-        network=request.POST['network'],
-        release_date=request.POST['release_date'],
-        description=request.POST['description']
-    )
+        return redirect('/shows')
 
-    return redirect(f'/shows/{show.id}')
+    return redirect('/shows/new')
 
 
 def show_details(request, id):
@@ -55,27 +58,27 @@ def edit_show(request, id):
     return render(request, 'edit_show.html', context)
 
 
-def update_show(request, id):
-
-    errors = Show.objects.validator(request.POST)
-
-    if errors:
-        for key, value in errors.items():
-            messages.error(request, value)
-        return redirect(f'/shows/{id}/edit')
-
+def update_show(request, id): # Changed show_id to id
     show = Show.objects.get(id=id)
 
-    show.title = request.POST['title']
-    show.network = request.POST['network']
-    show.release_date = request.POST['release_date']
-    show.description = request.POST['description']
+    if request.method == "POST":
+        # Pass id to your model validator
+        errors = Show.objects.validator(request.POST, show_id=id)
 
-    show.save()
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(f'/shows/{id}/edit')
 
-    return redirect(f'/shows/{id}')
+        show.title = request.POST['title']
+        show.network = request.POST['network']
+        show.release_date = request.POST['release_date']
+        show.description = request.POST.get('description', '')
+        show.save()
 
+        return redirect(f'/shows/{id}')
 
+    return redirect('/shows')
 def delete_show(request, id):
 
     show = Show.objects.get(id=id)
