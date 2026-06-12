@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Comments</title>
+    <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+</head>
+<body>
+    <p><a href="/">Back to Dashboard</a></p>
+    <h1>Comments for: {{ course.name }}</h1>
+    
+    <form action="/courses/{{ course.id }}/comments" method="POST">
+        {% csrf_token %}
+        <textarea name="content" required placeholder="Write a comment..." rows="4" cols="50"></textarea><br><br>
+        <button type="submit" class="btn-add">Submit Comment</button>
+    </form>
+
+    <h3>All Comments:</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.content }} — <em>{{ comment.created_at }}</em></li>
+        {% empty %}
+            <li>No comments yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
