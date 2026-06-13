@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Favorite Books</title>
+</head>
+<body>
+
+    <h1>{{ page_user.first_name }} {{ page_user.last_name }}'s Favorite Books</h1>
+
+    <a href="/books/">Home</a>
+    |
+    <a href="/logout/">Log Out</a>
+
+    <hr>
+
+    <h2>Favorite Books:</h2>
+
+    <ul>
+        {% for book in page_user.liked_books.all %}
+            <li>
+                <a href="/books/{{ book.id }}/">{{ book.title }}</a>
+                - Added by {{ book.uploaded_by.first_name }} {{ book.uploaded_by.last_name }}
+            </li>
+        {% empty %}
+            <li>No favorite books yet.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

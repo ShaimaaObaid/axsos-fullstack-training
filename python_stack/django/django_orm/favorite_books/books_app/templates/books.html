@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Books</title>
+</head>
+<body>
+
+    <h1>Welcome, {{ logged_user.first_name }}!</h1>
+    <a href="/logout/">Log Out</a>
+    |
+    <a href="/users/{{ logged_user.id }}/">My Favorite Books</a>
+
+    <hr>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Add a Favorite Book</h2>
+
+    <form action="/books/create/" method="POST">
+        {% csrf_token %}
+
+        <p>Title:</p>
+        <input type="text" name="title">
+
+        <p>Description:</p>
+        <textarea name="description"></textarea>
+
+        <br><br>
+        <button type="submit">Add</button>
+    </form>
+
+    <hr>
+
+    <h2>All Books</h2>
+
+    {% for book in all_books %}
+        <p>
+            <a href="/books/{{ book.id }}/">{{ book.title }}</a>
+            <br>
+            Added by: {{ book.uploaded_by.first_name }} {{ book.uploaded_by.last_name }}
+        </p>
+
+        {% if logged_user in book.users_who_like.all %}
+            <p>This is one of your favorites</p>
+        {% else %}
+            <a href="/books/{{ book.id }}/favorite">Add to Favorites</a>
+        {% endif %}
+
+        <hr>
+    {% endfor %}
+
+</body>
+</html>
