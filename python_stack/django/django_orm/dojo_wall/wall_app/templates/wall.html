@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodingDojo Wall</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid black;
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+
+        .message {
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .message-text {
+            margin-left: 30px;
+        }
+
+        .comment {
+            margin-left: 60px;
+            margin-top: 15px;
+        }
+
+        .comment-form {
+            margin-left: 60px;
+        }
+
+        .btn-message {
+            background-color: #0d6efd;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .btn-comment {
+            background-color: green;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .btn-delete {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>CodingDojo Wall</h2>
+
+        <div>
+            <span>Welcome {{ user.first_name }}</span>
+            |
+            <a href="/logout">log off</a>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="error">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <h3>Post a message</h3>
+
+    <form action="/wall/messages/create" method="POST">
+        {% csrf_token %}
+        <textarea name="message"></textarea>
+
+        <div class="right">
+            <button class="btn-message" type="submit">Post a message</button>
+        </div>
+    </form>
+
+    {% for message in all_messages %}
+
+        <div class="message">
+
+            <h4>
+                {{ message.user.first_name }} {{ message.user.last_name }}
+                - {{ message.created_at|date:"F jS Y" }}
+            </h4>
+
+            <p class="message-text">
+                {{ message.message }}
+            </p>
+
+            {% if message.user.id == request.session.user_id %}
+                <form action="/wall/messages/{{ message.id }}/delete" method="POST">
+                    {% csrf_token %}
+                    <button class="btn-delete" type="submit">Delete Message</button>
+                </form>
+            {% endif %}
+
+            {% for comment in message.comments.all %}
+                <div class="comment">
+                    <h5>
+                        {{ comment.user.first_name }} {{ comment.user.last_name }}
+                        - {{ comment.created_at|date:"F jS Y" }}
+                    </h5>
+
+                    <p>{{ comment.comment }}</p>
+
+                    {% if comment.user.id == request.session.user_id %}
+                        <form action="/wall/comments/{{ comment.id }}/delete" method="POST">
+                            {% csrf_token %}
+                            <button class="btn-delete" type="submit">Delete Comment</button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="comment-form">
+                <h4>Post a comment</h4>
+
+                <form action="/wall/comments/create" method="POST">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="message_id" value="{{ message.id }}">
+
+                    <textarea name="comment"></textarea>
+
+                    <div class="right">
+                        <button class="btn-comment" type="submit">Post a comment</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>
